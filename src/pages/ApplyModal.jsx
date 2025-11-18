@@ -53,6 +53,8 @@ export default function ApplyModal({ isOpen, onClose }) {
         body: JSON.stringify(payload),
       });
 
+
+      
       if (res.ok) {
         alert("Application submitted successfully! We'll contact you soon.");
         onClose();
