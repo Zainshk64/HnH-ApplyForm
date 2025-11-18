@@ -42,10 +42,10 @@ export default function UniversityCard({ uni, onClick }) {
 
         <div className="mt-6 pt-5 border-t border-gray-100 flex items-center justify-between">
           <div>
-            <p className="text-2xl font-extrabold text-[#EE7A36]">{uni.tuition_first_year}</p>
+            <p className="text-xl sm:text-2xl font-extrabold text-[#EE7A36]">{uni.tuition_first_year}</p>
             <p className="text-xs text-gray-500 font-medium">First Year</p>
           </div>
-          <button className="bg-[#EE7A36] text-white font-bold px-6 py-3 rounded-xl flex items-center gap-2 hover:bg-[#e06b1f] transition-all transform hover:scale-105 shadow-md">
+          <button className="bg-[#EE7A36] cursor-pointer text-white font-bold px-3 sm:px-6 py-3 rounded-xl flex items-center gap-2 hover:bg-[#e06b1f] transition-all transform hover:scale-105 shadow-md">
             Apply Now <ArrowRight size={18} />
           </button>
         </div>

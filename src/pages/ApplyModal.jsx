@@ -44,7 +44,6 @@ export default function ApplyModal({ isOpen, onClose }) {
       urgency: formData.urgency,
       additionalNotes: formData.additionalNotes.trim(),
     };
-
     try {
       // Replace with your actual API endpoint
       const res = await fetch("https://your-api.com/api/application submit", {
@@ -91,10 +90,10 @@ export default function ApplyModal({ isOpen, onClose }) {
         >
           <div className="sticky top-0 bg-white border-b border-gray-200 px-8 py-6 flex items-center justify-between">
             <div>
-              <h2 className="text-3xl font-bold text-gray-900">Apply Now</h2>
-              <p className="text-gray-600 mt-1">Get Free Consultation & Visa Assistance</p>
+              <h2 className="text-xl sm:text-3xl font-bold text-gray-900">Apply Now</h2>
+              <p className=" text-sm sm:text-md text-gray-600 mt-1">Get Free Consultation & Visa Assistance</p>
             </div>
-            <button onClick={onClose} className="p-2 hover:bg-gray-100 rounded-full transition">
+            <button onClick={onClose} className="p-2 cursor-pointer hover:bg-gray-100 rounded-full transition">
               <X size={24} className="text-gray-600" />
             </button>
           </div>
@@ -170,7 +169,7 @@ export default function ApplyModal({ isOpen, onClose }) {
             {/* Visa Type */}
             <div>
               <label className="block text-sm font-semibold text-gray-700 mb-3">Visa Type *</label>
-              <div className="flex gap-4">
+              <div className="flex flex-wrap gap-4">
                 <label className="flex items-center gap-3 cursor-pointer bg-gray-50 px-6 py-3 rounded-xl border-2 border-gray-200 hover:border-[#EE7A36] transition flex-1">
                   <input
                     type="radio"
@@ -229,7 +228,7 @@ export default function ApplyModal({ isOpen, onClose }) {
             {/* Submit Button */}
             <button
               onClick={handleSubmit}
-              className="w-full bg-[#EE7A36] hover:bg-[#d96d2f] text-white font-bold text-lg py-5 rounded-xl transition-all transform hover:scale-[1.02] shadow-lg hover:shadow-xl"
+              className="w-full bg-[#EE7A36] hover:bg-[#d96d2f] cursor-pointer text-white font-bold sm:text-lg py-5 rounded-xl transition-all transform hover:scale-[1.02] shadow-lg hover:shadow-xl"
             >
               Submit Application – It's Free!
             </button>

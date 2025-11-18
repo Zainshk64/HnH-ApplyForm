@@ -16,13 +16,13 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <GraduationCap className="text-[#EE7A36]" size={32} />
-            <span className="text-xl font-bold text-gray-900">
+            <span className="sm:text-xl font-bold text-gray-900">
               H&H Visa Consultant
             </span>
           </div>
           <button
             onClick={() => setIsModalOpen(true)}
-            className="bg-[#EE7A36] text-white font-semibold px-6 py-2.5 rounded-full hover:bg-[#d96d2f] transition-all"
+            className="bg-[#EE7A36] cursor-pointer text-white font-semibold  px-3 py-2.5 rounded-full hover:bg-[#d96d2f] transition-all"
           >
             Apply Now
           </button>
@@ -52,18 +52,18 @@ export default function Home() {
             </span>
           </motion.div>
 
-          <h1 className="text-5xl md:text-7xl font-bold text-gray-900 leading-tight">
+          <h1 className="text-4xl md:text-7xl font-bold text-gray-900 leading-tight">
             Study Abroad with
             <br />
             <span className="text-[#EE7A36]">H&H Visa Consultant</span>
           </h1>
 
-          <p className="text-xl md:text-2xl mt-8 text-gray-600 max-w-3xl mx-auto">
+          <p className="text-md md:text-2xl mt-8 text-gray-600 max-w-3xl mx-auto">
             Your Gateway to World-Class Education in Canada, UK, USA, Germany,
             Australia & More
           </p>
 
-          <div className="flex flex-wrap items-center justify-center gap-8 mt-12">
+          <div className="flex flex-col lg:flex-row items-center justify-center gap-8 mt-12">
             <div className="flex items-center gap-3">
               <div className="bg-[#EE7A36] p-3 rounded-full">
                 <Users className="text-white" size={24} />
@@ -82,7 +82,7 @@ export default function Home() {
                 <p className="text-sm text-gray-600">Visa Success Rate</p>
               </div>
             </div>
-            <div className="flex items-center gap-3">
+            {/* <div className="flex items-center gap-3">
               <div className="bg-[#EE7A36] p-3 rounded-full">
                 <Globe className="text-white" size={24} />
               </div>
@@ -90,14 +90,14 @@ export default function Home() {
                 <p className="text-3xl font-bold text-gray-900">15+</p>
                 <p className="text-sm text-gray-600">Countries</p>
               </div>
-            </div>
+            </div> */}
           </div>
 
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => setIsModalOpen(true)}
-            className="mt-12 bg-[#EE7A36] text-white font-bold text-lg px-10 py-5 rounded-full shadow-xl hover:shadow-2xl hover:bg-[#d96d2f] transition-all inline-flex items-center gap-3"
+            className="mt-12 cursor-pointer bg-[#EE7A36] text-white font-bold sm:text-lg px-5 sm:px-10 py-5 rounded-full shadow-xl hover:shadow-2xl hover:bg-[#d96d2f] transition-all inline-flex items-center gap-3"
           >
             Start Your Journey Today
             <ArrowRight size={24} />
@@ -141,7 +141,7 @@ export default function Home() {
         </div>
       </section>
 
-      <FloatingApplyButton onClick={() => setIsModalOpen(true)} />
+      {/* <FloatingApplyButton onClick={() => setIsModalOpen(true)} /> */}
       <ApplyModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </div>
   );
