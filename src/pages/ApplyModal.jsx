@@ -47,7 +47,7 @@ export default function ApplyModal({ isOpen, onClose }) {
 
     try {
       // Replace with your actual API endpoint
-      const res = await fetch("https://your-api.com/api/apply", {
+      const res = await fetch("https://your-api.com/api/application submit", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
