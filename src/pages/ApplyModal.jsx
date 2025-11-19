@@ -144,7 +144,7 @@ export default function ApplyModal({ isOpen, onClose }) {
             <div>
               <label className="block text-sm font-semibold text-gray-700 mb-3">Interested Degree Level *</label>
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-                {["Bachelor", "Master", "PhD"].map((level) => (
+                {["Bachelor", "Master",].map((level) => (
                   <label key={level} className="flex items-center gap-3 cursor-pointer bg-gray-50 px-5 py-3 rounded-xl border-2 border-gray-200 hover:border-[#EE7A36] transition">
                     <input
                       type="radio"
