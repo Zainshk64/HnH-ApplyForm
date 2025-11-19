@@ -12,7 +12,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-white">
       {/* Navigation */}
-      <nav className="fixed top-0 w-full bg-white/90 backdrop-blur-md shadow-sm z-40 border-b border-gray-100">
+      {/* <nav className="fixed top-0 w-full bg-white/90 backdrop-blur-md shadow-sm z-40 border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <GraduationCap className="text-[#EE7A36]" size={32} />
@@ -27,10 +27,10 @@ export default function Home() {
             Apply Now
           </button>
         </div>
-      </nav>
+      </nav> */}
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 px-6 overflow-hidden">
+      <section className="relative pt-16 pb-20 px-6 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-orange-50 via-white to-orange-50"></div>
         <div className="absolute top-0 right-0 w-96 h-96 bg-[#EE7A36]/10 rounded-full blur-3xl"></div>
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#EE7A36]/10 rounded-full blur-3xl"></div>
@@ -99,14 +99,14 @@ export default function Home() {
             onClick={() => setIsModalOpen(true)}
             className="mt-12 cursor-pointer bg-[#EE7A36] text-white font-bold sm:text-lg px-5 sm:px-10 py-5 rounded-full shadow-xl hover:shadow-2xl hover:bg-[#d96d2f] transition-all inline-flex items-center gap-3"
           >
-            Start Your Journey Today
+            Apply Now
             <ArrowRight size={24} />
           </motion.button>
         </motion.div>
       </section>
 
       {/* University Cards */}
-      <section className="py-20 px-6 bg-gray-50">
+      {/* <section className="py-20 px-6 bg-gray-50">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -139,7 +139,7 @@ export default function Home() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* <FloatingApplyButton onClick={() => setIsModalOpen(true)} /> */}
       <ApplyModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
