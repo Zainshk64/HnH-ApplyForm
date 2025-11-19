@@ -101,7 +101,23 @@ export default function ApplyModal({ isOpen, onClose }) {
             </button>
           </div>
 
+          
+
           <div className="p-8 space-y-6">
+               {/* Visa Type */}
+            <div>
+              <label className="block text-sm font-semibold text-gray-700 mb-3">Visa Type *</label>
+              <div className="flex flex-wrap gap-4">
+                <label className="flex items-center gap-3 cursor-pointer bg-gray-50 px-6 py-3 rounded-xl border-2 border-gray-200 hover:border-[#EE7A36] transition flex-1 min-w-[140px]">
+                  <input type="radio" name="visaType" value="study" checked={formData.visaType === "study"} onChange={handleChange} className="w-5 h-5 text-[#EE7A36]" />
+                  <span className="font-medium">Study Visa</span>
+                </label>
+                <label className="flex items-center gap-3 cursor-pointer bg-gray-50 px-6 py-3 rounded-xl border-2 border-gray-200 hover:border-[#EE7A36] transition flex-1 min-w-[140px]">
+                  <input type="radio" name="visaType" value="visit" checked={formData.visaType === "visit"} onChange={handleChange} className="w-5 h-5 text-[#EE7A36]" />
+                  <span className="font-medium">Visit Visa</span>
+                </label>
+              </div>
+            </div>
             {/* Full Name */}
             <div>
               <label className="block text-sm font-semibold text-gray-700 mb-2">Full Name *</label>
@@ -160,20 +176,7 @@ export default function ApplyModal({ isOpen, onClose }) {
               </div>
             </div>
 
-            {/* Visa Type */}
-            <div>
-              <label className="block text-sm font-semibold text-gray-700 mb-3">Visa Type *</label>
-              <div className="flex flex-wrap gap-4">
-                <label className="flex items-center gap-3 cursor-pointer bg-gray-50 px-6 py-3 rounded-xl border-2 border-gray-200 hover:border-[#EE7A36] transition flex-1 min-w-[140px]">
-                  <input type="radio" name="visaType" value="study" checked={formData.visaType === "study"} onChange={handleChange} className="w-5 h-5 text-[#EE7A36]" />
-                  <span className="font-medium">Study Visa</span>
-                </label>
-                <label className="flex items-center gap-3 cursor-pointer bg-gray-50 px-6 py-3 rounded-xl border-2 border-gray-200 hover:border-[#EE7A36] transition flex-1 min-w-[140px]">
-                  <input type="radio" name="visaType" value="visit" checked={formData.visaType === "visit"} onChange={handleChange} className="w-5 h-5 text-[#EE7A36]" />
-                  <span className="font-medium">Visit Visa</span>
-                </label>
-              </div>
-            </div>
+         
 
             {/* Urgency */}
             <div>
