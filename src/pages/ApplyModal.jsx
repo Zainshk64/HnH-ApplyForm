@@ -107,7 +107,7 @@ export default function ApplyModal({ isOpen, onClose }) {
             </button>
           </div>
 
-          <div className="p-8">
+          <div className="p-6">
             {/* Step 1: Visa Type Only */}
             {step === 1 && (
               <motion.div

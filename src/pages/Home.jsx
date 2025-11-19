@@ -97,7 +97,7 @@ export default function Home() {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => setIsModalOpen(true)}
-            className="mt-12 cursor-pointer bg-[#EE7A36] text-white font-bold sm:text-lg px-5 sm:px-10 py-5 rounded-full shadow-xl hover:shadow-2xl hover:bg-[#d96d2f] transition-all inline-flex items-center gap-3"
+            className="mt-12 cursor-pointer bg-[#EE7A36] text-white font-bold sm:text-lg  px-10 py-5 rounded-full shadow-xl hover:shadow-2xl hover:bg-[#d96d2f] transition-all inline-flex items-center gap-3"
           >
             Apply Now
             <ArrowRight size={24} />
