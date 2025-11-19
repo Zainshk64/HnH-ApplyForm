@@ -102,7 +102,7 @@ export default function ApplyModal({ isOpen, onClose }) {
                 {step === 1 ? "Select your visa type to get started" : "Fill details – It's 100% Free"}
               </p>
             </div>
-            <button onClick={onClose} className="p-2 hover:bg-gray-100 rounded-full transition">
+            <button onClick={onClose} className="p-2 cursor-pointer hover:bg-gray-100 rounded-full transition">
               <X size={26} className="text-gray-600" />
             </button>
           </div>
@@ -149,7 +149,7 @@ export default function ApplyModal({ isOpen, onClose }) {
 
                 <button
                   onClick={handleNext}
-                  className="w-full max-w-md mx-auto bg-[#EE7A36] hover:bg-[#d96d2f] text-white font-bold text-xl py-5 rounded-xl flex items-center justify-center gap-3 transition-all hover:shadow-xl"
+                  className="w-full cursor-pointer max-w-md mx-auto bg-[#EE7A36] hover:bg-[#d96d2f] text-white font-bold text-xl py-5 rounded-xl flex items-center justify-center gap-3 transition-all hover:shadow-xl"
                 >
                   Continue
                   <ArrowRight size={28} />
@@ -245,7 +245,7 @@ export default function ApplyModal({ isOpen, onClose }) {
 
                 <button
                   onClick={handleSubmit}
-                  className="w-full bg-[#EE7A36] hover:bg-[#d96d2f] text-white font-bold text-lg py-5 rounded-xl transition-all transform hover:scale-[1.02] shadow-lg hover:shadow-xl"
+                  className="w-full cursor-pointer bg-[#EE7A36] hover:bg-[#d96d2f] text-white font-bold text-lg py-5 rounded-xl transition-all transform hover:scale-[1.02] shadow-lg hover:shadow-xl"
                 >
                   Submit Application – It's Free!
                 </button>
