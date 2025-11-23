@@ -46,6 +46,36 @@ export const countryData = [
   },
 ];
 
-export const countriesList = [
-  "Canada", "USA", "UK", "Australia", "Germany", "Ireland", "New Zealand", "France", "Dubai", "Malaysia", "Other"
+export const visitCountries = [
+  'Thailand',
+  'Malaysia', 
+  'Indonesia',
+  'Azerbaijan',
+  'Singapore',
+  'Hong Kong', // Note: Fixed from 'Hong-Kong' to match common usage
+  'Maldives'
 ];
+
+export const studyCountries = [
+  // From Study_France sheet
+  'France',
+  'Sweden',
+  'Germany',
+  'Lithuania',
+  'Cyprus',
+  'Europe',
+  // From Study-UK sheet
+  'UK',
+  'Australia', 
+  'New Zealand',
+  'Canada',
+  'USA',
+  // From Study_China sheet
+  'Georgia',
+  'South Korea',
+  'China',
+  'Malaysia'
+];
+
+// Remove duplicates and sort for study countries
+export const uniqueStudyCountries = [...new Set(studyCountries)].sort();
