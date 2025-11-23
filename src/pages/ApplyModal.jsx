@@ -18,6 +18,7 @@ export default function ApplyModal({ isOpen, onClose }) {
     degreeLevel: "",
     additionalNotes: "",
   });
+  const base_url = "https://hhgooglesheet-production.up.railway.app"
 
   // Update available countries when visa type changes
   useEffect(() => {
@@ -64,7 +65,7 @@ export default function ApplyModal({ isOpen, onClose }) {
     const payload = { ...formData };
     
     try {
-      const res = await fetch("http://localhost:3000/api/application/submit", {
+      const res = await fetch( `${base_url}/api/application/submit`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
