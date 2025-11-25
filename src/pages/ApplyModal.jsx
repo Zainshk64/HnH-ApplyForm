@@ -7,7 +7,6 @@ import toast from "react-hot-toast";
 export default function ApplyModal({ isOpen, onClose }) {
   const [step, setStep] = useState(1);
   const [availableCountries, setAvailableCountries] = useState([]);
-  const [showOtherCountry, setShowOtherCountry] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const [formData, setFormData] = useState({
@@ -16,7 +15,7 @@ export default function ApplyModal({ isOpen, onClose }) {
     phone: "",
     address: "",
     desiredCountry: "",
-    otherCountry: "", // New field
+    otherCountryInterested: "",
     visaType: "",
     urgency: "",
     degreeLevel: "",
@@ -34,20 +33,13 @@ export default function ApplyModal({ isOpen, onClose }) {
       setAvailableCountries([]);
     }
 
-    setFormData(prev => ({ ...prev, desiredCountry: "", otherCountry: "" }));
-    setShowOtherCountry(false);
+    // Reset country fields when visa type changes
+    setFormData(prev => ({ ...prev, desiredCountry: "", otherCountryInterested: "" }));
   }, [formData.visaType]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
-
-    if (name === "desiredCountry") {
-      setShowOtherCountry(value === "other");
-      if (value !== "other") {
-        setFormData(prev => ({ ...prev, otherCountry: "" }));
-      }
-    }
   };
 
   const handleNext = () => {
@@ -59,7 +51,7 @@ export default function ApplyModal({ isOpen, onClose }) {
   };
 
   const handleSubmit = async () => {
-    const requiredFields = ['name', 'email', 'phone', 'address', 'urgency'];
+    const requiredFields = ['name', 'email', 'phone', 'address', 'urgency', 'desiredCountry'];
     if (formData.visaType === 'study') requiredFields.push('degreeLevel');
 
     const missingFields = requiredFields.filter(field => !formData[field]);
@@ -68,42 +60,28 @@ export default function ApplyModal({ isOpen, onClose }) {
       return;
     }
 
-    if (!formData.desiredCountry && !formData.otherCountry) {
-      toast.error("Please select or enter a country!");
-      return;
-    }
-
-    const finalCountry = showOtherCountry && formData.otherCountry ? formData.otherCountry.trim() : formData.desiredCountry;
-
     setIsSubmitting(true);
-
-    const payload = {
-      ...formData,
-      desiredCountry: finalCountry,
-      otherCountry: showOtherCountry ? formData.otherCountry : "",
-    };
 
     try {
       const res = await fetch(`${base_url}/api/application/submit`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
+        body: JSON.stringify(formData),
       });
 
       if (res.ok) {
         toast.success("Application Submitted Successfully! We'll contact you soon.", {
           duration: 6000,
-          icon: "Success",
+          icon: "✅",
         });
 
         // Reset everything
         setFormData({
           name: "", email: "", phone: "", address: "",
-          desiredCountry: "", otherCountry: "", visaType: "", urgency: "",
+          desiredCountry: "", otherCountryInterested: "", visaType: "", urgency: "",
           degreeLevel: "", additionalNotes: ""
         });
         setStep(1);
-        setShowOtherCountry(false);
         onClose();
       } else {
         toast.error("Submission failed. Please try again.");
@@ -235,7 +213,7 @@ export default function ApplyModal({ isOpen, onClose }) {
                   </div>
                 </div>
 
-                {/* Country Selector with "Other" */}
+                {/* Country Selector - Required */}
                 <div>
                   <label className="block text-sm font-semibold text-gray-700 mb-2">
                     Where do you want to go? *
@@ -251,30 +229,26 @@ export default function ApplyModal({ isOpen, onClose }) {
                     {availableCountries.map(country => (
                       <option key={country} value={country}>{country}</option>
                     ))}
-                    <option value="other">Other Country (Not Listed)</option>
                   </select>
+                </div>
 
-                  {/* Other Country Input */}
-                  <AnimatePresence>
-                    {showOtherCountry && (
-                      <motion.div
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: "auto" }}
-                        exit={{ opacity: 0, height: 0 }}
-                        className="mt-4"
-                      >
-                        <input
-                          type="text"
-                          name="otherCountry"
-                          value={formData.otherCountry}
-                          onChange={handleChange}
-                          placeholder="Enter country name (e.g. Japan, Brazil, New Zealand)"
-                          disabled={isSubmitting}
-                          className="w-full bg-orange-50 border-2 border-[#EE7A36] rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#EE7A36] placeholder-orange-600"
-                        />
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
+                {/* Other Country Interested - Optional, for both study and visit */}
+                <div>
+                  <label className="block text-sm font-semibold text-gray-700 mb-2">
+                    Any other country interested? <span className="text-gray-400 font-normal">(Optional)</span>
+                  </label>
+                  <input
+                    type="text"
+                    name="otherCountryInterested"
+                    value={formData.otherCountryInterested}
+                    onChange={handleChange}
+                    placeholder="e.g. Japan, Brazil, New Zealand"
+                    disabled={isSubmitting}
+                    className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#EE7A36]"
+                  />
+                  <p className="text-xs text-gray-500 mt-1">
+                    If you're interested in any country not listed above, enter it here
+                  </p>
                 </div>
 
                 {formData.visaType === 'study' && (
